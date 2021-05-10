@@ -41,7 +41,7 @@ At the end of this hands-on lab, you will be better able to implement an end-to-
 - Powershell
 
 ## Related references
-- [MCW](https://github.com/Microsoft/MCW)
+- [MCW](https://microsoftcloudworkshop.com/)
 - [Azure Digital Twins documentation](https://docs.microsoft.com/en-us/azure/digital-twins/)
 - [Azure Digital Twins learning path](https://docs.microsoft.com/en-us/learn/paths/develop-azure-digital-twins/)
 
