@@ -4,7 +4,7 @@ Azure Digital Twins (ADT) is a platform as a service (PaaS) offering that enable
 
 Contoso Apparel is a large multinational clothing manufacturer. Their environment consists of several factories, warehouses, storefronts, and logistics infrastructure. Multiple telemetry points are measured to ensure the highest quality level in their products, such as temperature, vibration, location, and humidity. Of these readings, maintaining humidity within the range of x and y at all supply chain levels is the most critical. Due to mold issues, humidity has a direct correlation to the quality of the delivered consumer end-product. Contoso Apparel is looking to implement digital twins to model their existing supply chain environment end-to-end so that they can visualize their entire environment and gain insight into the current state of their assets.
 
-April 2021
+May 2021
 
 ## Target audience
 
