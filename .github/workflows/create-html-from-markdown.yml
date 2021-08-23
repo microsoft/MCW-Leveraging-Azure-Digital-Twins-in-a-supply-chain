@@ -1,0 +1,136 @@
+name: Create Documentation and Push to Storage
+
+env: 
+  #Replace `STORAGE_CONTAINER` with the name of your blob storage folder that hosts the documents for this repo
+  STORAGE_CONTAINER: 'azure-digital-twins-supply-chain'
+  MARKDOWN_ROOT_HOL: 'Hands-on\ lab'
+  MARKDOWN_ROOT_WDS: 'Whiteboard\ design\ session'
+  OUTPUT_FOLDER: 'azure-digital-twins'
+  OUTPUT_SUBFOLDER_HOL: 'hol'
+  OUTPUT_SUBFOLDER_WDS: 'wds'
+  MEDIA_FOLDER: 'media'
+
+#modify this to on push to main if desired
+on:
+  push:
+    branches: [ documentation ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Get Node'
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      #Lint the markdown files [currently most are disabled, consider removing exclusions from .markdownlint.json and fixing formatting issues in markdown]
+      - name: 'Linting HOL markdown files'
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          config_file: .markdownlint.json
+          files:  ./${{ env.MARKDOWN_ROOT_HDS }}
+      
+      - name: 'Linting HOL markdown files'
+        uses: nosborn/github-action-markdown-cli@v1.1.1
+        with:
+          config_file: .markdownlint.json
+          files:  ./${{ env.MARKDOWN_ROOT_WDS }}
+      
+      # Install PanDoc
+      - name: Install Pandoc
+        run: sudo apt-get install pandoc
+
+      # Setup the output archive environment
+      - name: 'Setup output directory/directories'
+        run: |
+          mkdir output 
+          sudo chmod -R 755 output
+          mkdir output/${{ env.OUTPUT_FOLDER }}
+          sudo chmod -R 755 output/${{ env.OUTPUT_FOLDER }}
+          mkdir output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_HOL }}
+          sudo chmod -R 755 output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_HOL }}
+          mkdir output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_HOL }}/${{ env.MEDIA_FOLDER }}
+          sudo chmod -R 755 output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_HOL }}/${{ env.MEDIA_FOLDER }}
+          mkdir output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_WDS }}
+          sudo chmod -R 755 output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_WDS }}
+          mkdir output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_WDS }}/${{ env.MEDIA_FOLDER }}
+          sudo chmod -R 755 output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_WDS }}/${{ env.MEDIA_FOLDER }}
+          
+      # Create HTML files
+      - name: 'Create HOL HTML Files'
+        run: |
+          IFS=$';'
+          FILE_LIST_MD=$(printf '%s;' ${{ env.MARKDOWN_ROOT_HOL }}/*.md)
+          echo ${FILE_LIST_MD}
+          IFS=';' read -ra MDFILES <<< ${FILE_LIST_MD}
+          for f in ${MDFILES[@]}; 
+          do 
+            echo ${f}
+            HTML_FULL_PATH=`basename ${f}`
+            NEW_FILE=${HTML_FULL_PATH/md/html}
+            pandoc --from markdown+raw_html --output=output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_HOL }}/${NEW_FILE} ${f}
+            cp ${f} output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_HOL }}
+          done
+          
+      - name: 'Create WDS HTML Files'
+        run: |
+          IFS=$';'
+          FILE_LIST_WDS=$(printf '%s;' ${{ env.MARKDOWN_ROOT_WDS }}/*.md)
+          echo ${FILE_LIST_WDS}
+          IFS=';' read -ra WDSMDFILES <<< ${FILE_LIST_WDS}
+          for f in ${WDSMDFILES[@]}; 
+          do 
+            echo ${f}
+            HTML_FULL_PATH=`basename ${f}`
+            NEW_FILE=${HTML_FULL_PATH/md/html}
+            pandoc --from markdown+raw_html --output=output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_WDS }}/${NEW_FILE} ${f}
+            cp ${f} output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_WDS }}
+          done
+          
+      - name: 'Copy Media HOL'
+        run: |
+          cp -r ./${{ env.MARKDOWN_ROOT_HOL }}/${{ env.MEDIA_FOLDER }}/* output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_HOL }}/${{ env.MEDIA_FOLDER }}
+      
+      - name: 'Copy Media WDS'
+        run: |
+          cp -r ./${{ env.MARKDOWN_ROOT_WDS }}/${{ env.MEDIA_FOLDER }}/* output/${{ env.OUTPUT_FOLDER }}/${{ env.OUTPUT_SUBFOLDER_WDS }}/${{ env.MEDIA_FOLDER }}
+          
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: output
+          path: output
+          
+      #Deploy to storage account here
+      
+      #NOTE: You *must* add secrets to the repo for storage account name and sas token
+      #      secrets.STORAGE_ACCOUNT_NAME => Your storage account name, stored in repo secrets
+      #      env.STORAGE_CONTAINER => storage container root or root/path, Defined at the top of this file
+      #      secrets.STORAGE_ACCOUNT_SAS_TOKEN => Your Create/Add/Write SAS Token for your storage account container, stored in secrets [don't store the `?` it's in the path]
+      
+      - name: 'Deploy output to storage'
+        run: |
+          DESTINATION="https://${{ secrets.STORAGE_ACCOUNT_NAME }}.blob.core.windows.net/${{ env.STORAGE_CONTAINER }}?${{ secrets.STORAGE_ACCOUNT_SAS_TOKEN }}"
+          echo $DESTINATION   
+          #Download and install azcopy 
+          wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
+          tar -xf azcopy.tar.gz
+          rm azcopy.tar.gz
+          echo "Copying content to Azure blob storage lab folder"
+            
+          azcopy copy 'output/*' $DESTINATION --recursive 
+          
+          echo "Content copied to destination folder at storage"
+
+      #Delete Archive to keep storage lower at GitHub (files are in storage account anyway, comment or remove to debug local output at GitHub
+      - name: Delete Output
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: output
