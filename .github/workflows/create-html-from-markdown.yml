@@ -10,10 +10,10 @@ env:
   OUTPUT_SUBFOLDER_WDS: 'wds'
   MEDIA_FOLDER: 'media'
 
-#modify this to on push to main if desired
+#modify this to on push to another branch if desired
 on:
   push:
-    branches: [ documentation ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
