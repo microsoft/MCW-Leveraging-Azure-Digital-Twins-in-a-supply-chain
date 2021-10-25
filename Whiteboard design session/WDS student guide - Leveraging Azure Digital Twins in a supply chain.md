@@ -219,8 +219,10 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | DTDL Specification | [https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) |
 | Azure Digital Twins Ontologies | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies) |
 | Azure Digital Twins Explorer | [https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) |
+| Azure Digital Twins Explorer (Preview) | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-azure-digital-twins-explorer] |
 | Azure Stream Analytics anomaly detection  | [https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)  |
 | Azure IoT Hub Device Provisioning Service  | [https://docs.microsoft.com/en-us/azure/iot-dps/](https://docs.microsoft.com/en-us/azure/iot-dps/)   |
 | Azure IoT Hub documentation | [https://docs.microsoft.com/en-us/azure/iot-hub/](https://docs.microsoft.com/en-us/azure/iot-hub/) |
 | Azure Time Series Insights documentation | [https://docs.microsoft.com/en-us/azure/time-series-insights/](https://docs.microsoft.com/en-us/azure/time-series-insights/) |
 | Azure Logic Apps documentation | [https://docs.microsoft.com/en-us/azure/logic-apps/](https://docs.microsoft.com/en-us/azure/logic-apps/) |
+| Azure Digital Twins query plugin for Azure Data Explorer | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-data-explorer-plugin] |

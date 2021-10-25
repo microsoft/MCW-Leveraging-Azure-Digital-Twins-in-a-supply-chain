@@ -347,11 +347,13 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | DTDL Specification | [https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) |
 | Azure Digital Twins Ontologies | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies) |
 | Azure Digital Twins Explorer | [https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) |
+| Azure Digital Twins Explorer (Preview) | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-azure-digital-twins-explorer] |
 | Azure Stream Analytics anomaly detection  | [https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)  |
 | Azure IoT Hub Device Provisioning Service  | [https://docs.microsoft.com/en-us/azure/iot-dps/](https://docs.microsoft.com/en-us/azure/iot-dps/)   |
 | Azure IoT Hub documentation | [https://docs.microsoft.com/en-us/azure/iot-hub/](https://docs.microsoft.com/en-us/azure/iot-hub/) |
 | Azure Time Series Insights documentation | [https://docs.microsoft.com/en-us/azure/time-series-insights/](https://docs.microsoft.com/en-us/azure/time-series-insights/) |
 | Azure Logic Apps documentation | [https://docs.microsoft.com/en-us/azure/logic-apps/](https://docs.microsoft.com/en-us/azure/logic-apps/) |
+| Azure Digital Twins query plugin for Azure Data Explorer | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-data-explorer-plugin] |
 
 # Leveraging Azure Digital Twins in a supply chain whiteboard design session trainer guide
 
@@ -431,7 +433,7 @@ IoT sensors in Contoso Apparel's environment send telemetry into IoT Hub via a d
 
 3. What methods are available for Contoso to add these entities to their environment knowledge graph?
 
-    Data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins. These are available as **REST APIs**. Calling these APIs is also made available via a variety of **SDKs** supporting languages such as C#, Java, JavaScript, and Python. Calling these APIs are automated in the **Digital Twins Explorer** application if you desire a user interface to upload your models.
+    Data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins. These are available as **REST APIs**. Calling these APIs is also made available via a variety of **SDKs** supporting languages such as C#, Java, JavaScript, and Python. Calling these APIs are automated in the **Digital Twins Explorer** application if you desire a user interface to upload your models, full source code of this application is available on GitHub and can be deployed as necessary. Alternatively, **Azure Digital Twins Explorer** functionality is also made available in the Azure Portal in a public preview. This service provides the capabilities of the Digital Twins Explorer application without having to build, deploy, and host its code. Locate this functionality on the Overview section of the deployed Azure Digital Twins resource.
 
     The data plane APIs can be broadly divided into the following categories:
 
@@ -487,7 +489,7 @@ IoT sensors in Contoso Apparel's environment send telemetry into IoT Hub via a d
 
 1. Contoso apparel needs to be able to perform ad-hoc queries and visualize historical data. What Azure service(s) would you suggest for this?
 
-    Azure Time Series insights allows for ad-hoc queries and visualization of historical data. Alternatively, data could be forwarded to other analysis services such as Azure Synapse Analytics to take advantage of visualization capabilities such as serverless SQL, Apache Spark, and Power BI.
+    Azure Time Series insights allows for ad-hoc queries and visualization of historical data. Alternatively, data could be forwarded to other analysis services such as Azure Synapse Analytics to take advantage of capabilities such as serverless SQL, Apache Spark, and Power BI. Azure Data Explorer provides querying capabilities via direct integration with the Azure Digital Twins service through the ADX plugin. This plugin allows for the invocation of Kusto queries that join Azure Digital Twins data and Azure Data Explorer time series databases.
 
 ## Checklist of preferred objection handling
 
