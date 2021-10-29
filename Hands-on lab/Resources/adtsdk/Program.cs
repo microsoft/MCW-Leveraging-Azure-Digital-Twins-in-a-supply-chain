@@ -12,7 +12,7 @@ namespace AdtSdk
     {
         public static async Task Main(string[] args)
         {
-            var adtInstanceUrl = "https://a3pvyoddigtwins.api.eus.digitaltwins.azure.net";
+            var adtInstanceUrl = "https://ADT_INSTANCE_HOST_NAME";
             var credential = new DefaultAzureCredential();
             var client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
            
