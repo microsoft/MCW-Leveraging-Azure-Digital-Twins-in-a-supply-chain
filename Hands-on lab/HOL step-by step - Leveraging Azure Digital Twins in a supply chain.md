@@ -47,6 +47,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 4: Querying and visualizing the Azure Digital Twins graph](#exercise-4-querying-and-visualizing-the-azure-digital-twins-graph)
     - [Task 1: Run digital twin queries using the CLI](#task-1-run-digital-twin-queries-using-the-cli)
     - [Task 2: Run digital twin queries using Azure Digital Twins Explorer](#task-2-run-digital-twin-queries-using-azure-digital-twins-explorer)
+    - [Task 3: Run digital twin queries using an SDK](#task-3-run-digital-twin-queries-using-an-sdk)
   - [Exercise 5: Keeping Azure Digital Twin instances up-to-date](#exercise-5-keeping-azure-digital-twin-instances-up-to-date)
     - [Task 1: Manually update the state of a digital twin using the CLI](#task-1-manually-update-the-state-of-a-digital-twin-using-the-cli)
     - [Task 2: Manually update the state of a digital twin using the Azure Digital Twins Explorer](#task-2-manually-update-the-state-of-a-digital-twin-using-the-azure-digital-twins-explorer)
@@ -539,7 +540,7 @@ The ability to query digital twins can provide insight into the current state of
 
 1. Return to your CLI command prompt window.
 
-2. The first query we will perform is to retrieve all digital twins based on the storeroom model we created earlier in the lab. To initiate this query using the CLI, use the following command (replace RESOURCE_GROUP_NAME with the name of the lab resource group and ADT_INSTANCE_NAME with your Azure Digital Twins instance name):
+2. The first query we will perform is to retrieve all digital twins based on the storeroom model we created earlier in the lab. To initiate this query using the CLI, use the following command (replace RESOURCE_GROUP_NAME with the name of the lab resource group and ADT_INSTANCE_NAME with your Azure Digital Twins ins\Gtance name):
 
     ```Bash
     az dt twin query -g RESOURCE_GROUP_NAME -n ADT_INSTANCE_NAME -q "select * from digitaltwins where IS_OF_MODEL('dtmi:com:contoso:storeroom;1')"
@@ -564,6 +565,38 @@ The ability to query digital twins can provide insight into the current state of
     ![The Azure Digital Twins Explorer is shown with the above query in the textbox and the resulting graph displayed. A segment of the graph is highlighted with its details appearing in a blade to the right.](media/adte_query_locationresultsanddetail.png "Azure Digital Twins Explorer Query")
 
 3. Keep the Azure Digital Twins Explorer web application open for later tasks.
+
+### Task 3: Run digital twin queries using an SDK
+
+SDK access to Azure Digital Twins is a convenient way to integrate digital twin data into business functions or line of business applications. In this task, we'll discover querying Azure Digital Twins using .Net Core and C#. It is important to note that the SDK is capable of more than querying, for a list of examples, visit the [Azure Digital Twins Core SDK samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
+
+1. Open a new instance of Visual Studio Code.
+
+2. Open the folder `Hands-on lab/Resources/adtsdk`.
+
+3. Open `Program.cs` and replace the **adtInstanceUrl** value to the lab Azure Digital Twins instance host name. Ensure this value is pre-pended with `https://`. Save the file.
+
+    ![A portion of the Program.cs displays with the Azure Digital Twins instance host name value highlighted.](media/adtsdk_replaceinstancehostname.png "Azure Digital Twins instance host name")
+
+4. Review the code in `Program.cs`. The code is documented inline. In the code you will learn how to initialize and authenticate a Digital Twins Client, retrieve a digital twin by id, as well as enumerate twin properties and values. Observe multiple examples of various queries in the remainder of the code.
+
+5. In Visual Studio Code, open a terminal window by selecting **View** > **Terminal** from the toolbar menu.
+
+6. In the terminal, log in to your Azure Account using the following command.
+
+    ```PowerShell
+    az login
+    ```
+
+7. In the terminal, execute the following command to run the program.
+
+    ```PowerShell
+    dotnet run
+    ```
+
+8. Observe the console output of the program.
+
+    ![The Visual Studio Code terminal window displays with output of the adtsdk program.](media/adtsdkoutput.png "Console output")
 
 ## Exercise 5: Keeping Azure Digital Twin instances up-to-date
 
