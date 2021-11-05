@@ -342,7 +342,7 @@ Specific permissions are required to have the ability to maintain models in the 
 
     ![The Add role assignment screen displays with the + Select members link highlighted.](media/digtwins_addroleassignment.png "Add role assignment screen")
 
-5. On the **Add role assignment** screen, on the **Members** tab, select the **+ Select members** link and search for and select your Azure Active Directory account (search for your login email address). Select **Next**.
+5. On the **Add role assignment** screen, on the **Members** tab, select the **+ Select members** link and search for and select your Azure Active Directory account (search for your login email address). Choose **Select**.
 
     ![The Add role assignment Members tab displays with the + Select members link highlighted.](media/digtwins_addroleassignment_memberselection.png "Add role members")
 
