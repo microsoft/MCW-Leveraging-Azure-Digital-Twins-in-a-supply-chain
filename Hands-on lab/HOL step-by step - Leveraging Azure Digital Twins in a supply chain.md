@@ -678,7 +678,7 @@ We will be using a Logic App to simulate shipment ETA information being updated 
 
     ![The Logic app designer has the last two activities expanded described by the text above.](media/logicapp_activities_expanded2.png "Logic app designer")
 
-6. From the left menu, select **Overview**, then select the **Enable** button from the top toolbar.
+5. From the left menu, select **Overview**, then select the **Enable** button from the top toolbar.
 
 > **Note**: If desired, you can choose to execute the Logic app on-demand by selecting **Run Trigger** from the **Overview** screen of the service.
 
