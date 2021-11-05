@@ -666,6 +666,8 @@ We will be using a Logic App to simulate shipment ETA information being updated 
 
    - Select **Review + assign** to assign the role.
 
+    >**Note**: If **Logic app** does not display in the **Managed Identity** field, close the blade to return to the **Add role assignment**, **Members** screen. In the **Assign access to**, choose **User, group or service principal**. Then select the **+ Select members** link. Search for and select the **{PREFIX}ShipmentArrivalTimeUpdateApp** identity and choose **Select**.
+
 2. Let's review the Logic application. In the [Azure Portal](https://portal.azure.com), open the lab resource group. Select the **Logic app** resource named **{PREFIX}ShipmentArrivalTimeUpdateApp**.
 
 3. From the left menu, select **Logic app designer**.
