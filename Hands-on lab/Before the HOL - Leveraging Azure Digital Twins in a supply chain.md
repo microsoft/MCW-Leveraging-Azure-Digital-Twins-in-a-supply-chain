@@ -67,7 +67,7 @@ Duration: 25 minutes
 
     ![The left menu of the Azure Portal displays with the Resource groups item selected.](media/azureleftmenu_resourcegroups.png "Azure Portal left menu")
 
-2. Select **+ Add** from the top toolbar menu, and create a resource group for this lab. Name the resource group: **mcw-adt-supply-chain**.
+2. Select **+ Add** from the top toolbar menu and create a resource group for this lab. Name the resource group: **mcw-adt-supply-chain**.
 
 3. For the **Region**, select a [region that supports Azure Digital Twins](https://azure.microsoft.com/en-us/global-infrastructure/services/).
 
