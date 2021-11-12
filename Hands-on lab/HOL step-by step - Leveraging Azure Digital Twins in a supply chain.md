@@ -124,7 +124,7 @@ At the top level, a DTDL model defines an interface that encapsulates the rest o
 | Component |Components allow you to build your model interface as an assembly of other interfaces. Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. |
 | Relationship |  Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as contains ("floor contains room"), cools ("hvac cools room"), isBilledTo ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. |
 
-It is essential to distinguish between properties and telemetry. With properties, it has a backing store so that you can read and query the data fields. Telemetry is the stream of data from an IoT device that contains things like temperature and humidity values. These values are not stored on the device itself. You are not able to query for the latest temperature value from a telemetry field. Instead, you'll need to have a data ingress function listen to the device's messages, and take actions as they arrive. Based on the business rules defined by the logic of the ingress function, you can then update a property based on the incoming telemetry (or property events) from the device using the Azure Digital Twins API.
+It is essential to distinguish between properties and telemetry. With properties, it has a backing store so that you can read and query the data fields. Telemetry is the stream of data from an IoT device that contains things like temperature and humidity values. These values are not stored on the device itself. You are not able to query for the latest temperature value from a telemetry field. Instead, you'll need to have a data ingress function listen to the device's messages and take actions as they arrive. Based on the business rules defined by the logic of the ingress function, you can then update a property based on the incoming telemetry (or property events) from the device using the Azure Digital Twins API.
 
 Here is an example of a Planet model. Model files should be saved with the **.json** extension. This example demonstrates the proper syntax in defining the Planet interface, properties, telemetry, relationship, and component. Take note that when defining a component interface (Crater in this example), it should be defined in the same array as the interface that uses it (Planet).
 
@@ -398,7 +398,7 @@ Azure Digital Twins has a command set for the Azure CLI that you can use to perf
     az dt model list -g RESOURCE_GROUP_NAME -n ADT_INSTANCE_NAME
     ```
 
-10. Keep this CLI command window open for additional tasks later on in this lab.
+10. Keep this CLI command window open for additional tasks later in this lab.
 
 ### Task 3: Setup the Azure Digital Twins Explorer application
 
@@ -464,7 +464,7 @@ Now that we've modeled the entities in our environment, we are ready to create d
 
     ![A portion of a command window output is displayed showing a results array with two storeroom digital twins instances returned.](media/cli_queryresults_alltwins.png "Digital Twins query output")
 
-5. Keep this CLI command window open for additional tasks later on in this lab.
+5. Keep this CLI command window open for additional tasks later in this lab.
 
 ### Task 2: Create a digital twin instance using the Azure Digital Twins Explorer
 
@@ -490,7 +490,7 @@ We will use the Azure Digital Twins Explorer web application to create two addit
 
     ![The TWIN GRAPH canvas displays with four circles representing all the storeroom digital twins that are defined.](media/adte_twingraph_fourstorerooms.png "TWIN GRAPH")
 
-7. In the **TWIN_GRAPH**, while holding the **Shift** key, select each of the four storeroom twins that we have created. Right-click to view the context menu, and select **Delete twin(s)**. We are doing this clean up so that they can be recreated in a different way in the next task.
+7. In the **TWIN_GRAPH**, while holding the **Shift** key, select each of the four storeroom twins that we have created. Right-click to view the context menu and select **Delete twin(s)**. We are doing this clean up so that they can be recreated in a different way in the next task.
 
 8. Keep the Azure Digital Twins Explorer web application open for later tasks.
 
@@ -550,7 +550,7 @@ The ability to query digital twins can provide insight into the current state of
 
     ![A portion of a console window output displays with data in JSON format representing a results array of query results.](media/cli_query_storerooms_result.png "Query output")
 
-4. Keep this CLI command window open for additional tasks later on in this lab.
+4. Keep this CLI command window open for additional tasks later in this lab.
 
 ### Task 2: Run digital twin queries using Azure Digital Twins Explorer
 
@@ -666,7 +666,7 @@ We will be using a Logic App to simulate shipment ETA information being updated 
 
    - Select **Review + assign** to assign the role.
 
-    >**Note**: If **Logic app** does not display in the **Managed Identity** field, close the blade to return to the **Add role assignment**, **Members** screen. In the **Assign access to**, choose **User, group or service principal**. Then select the **+ Select members** link. Search for and select the **{PREFIX}ShipmentArrivalTimeUpdateApp** identity and choose **Select**.
+    >**Note**: If **Logic app** does not display in the **Managed Identity** field, close the blade to return to the **Add role assignment**, **Members** screen. In the **Assign access to**, choose **User, group, or service principal**. Then select the **+ Select members** link. Search for and select the **{PREFIX}ShipmentArrivalTimeUpdateApp** identity and choose **Select**.
 
 2. Let's review the Logic application. In the [Azure Portal](https://portal.azure.com), open the lab resource group. Select the **Logic app** resource named **{PREFIX}ShipmentArrivalTimeUpdateApp**.
 
@@ -758,9 +758,9 @@ The best way to update device twin information is to base it on live data being 
 
 10. In Visual Studio Code, open the **devicesimulation** folder (`Hands-on lab/Resources/devicesimulation`).
 
-11. Open the **appSettings.json** file, and paste the IoT Hub connection string that you have previously recorded. Save the file.
+11. Open the **appSettings.json** file and paste the IoT Hub connection string that you have previously recorded. Save the file.
 
-12. Select **View** from the top menu, and select **Terminal** to open a terminal window.
+12. Select **View** from the top menu and select **Terminal** to open a terminal window.
 
 13. Execute the following command in the terminal window:
 
@@ -770,7 +770,7 @@ The best way to update device twin information is to base it on live data being 
 
 14. This will start the devices simulator program. When prompted, enter the command: **start** and press the **Enter** key. This simulation will register and initialize many IoT devices, then will begin sending updates. By default, this simulation is set to run for 10 minutes.
 
-15. Identify a device in the output that you would like to track, and use the Azure Digital Twins Explorer application to query for and view the properties.
+15. Identify a device in the output that you would like to track and use the Azure Digital Twins Explorer application to query for and view the properties.
 
 ## Exercise 6: Visualizing incoming data with Azure Time Series Insights
 
@@ -814,7 +814,7 @@ The capability of querying digital twins either via CLI or via the Azure Digital
 
 3. In the list of resources, select the **{PREFIX}tsi** Time Series Insights environment resource.
 
-4. Select the **Event Sources** from the left menu, and observe the **HubInput** details that are pointing to the **tsieventhub** using the **tsi-preview** consumer group.
+4. Select the **Event Sources** from the left menu and observe the **HubInput** details that are pointing to the **tsieventhub** using the **tsi-preview** consumer group.
 
 5. Select **Overview**, then select **Go to TSI Explorer** button from the top toolbar.
 
