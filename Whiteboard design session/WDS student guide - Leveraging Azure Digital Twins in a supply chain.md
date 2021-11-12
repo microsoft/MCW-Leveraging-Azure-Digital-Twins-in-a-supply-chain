@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-May 2021
+October 2021
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -42,11 +42,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives
 
-In this whiteboard design session, you will work in a group to evaluate Contoso's goals and design an IoT-based supply chain solution that uses the optimal combination of Azure tools and services that will fulfill their needs. You will also model their physical and logical environment to identify elements along with their properties and define the relationships between them. You will guide Contoso on deploying these models to Azure Digital Twins, how to leverage them and keep them up-to-date.
+In this whiteboard design session, you will work in a group to evaluate Contoso's goals and design an IoT-based supply chain solution that uses the optimal combination of Azure tools and services that will fulfill their needs. You will also model their physical and logical environment to identify elements along with their properties and define the relationships between them. You will guide Contoso on deploying these models to Azure Digital Twins, how to leverage them and keep them up to date.
 
 At the end of this whiteboard design session, you will be better able to design an end-to-end Azure IoT supply chain solution from telemetry ingestion to data insights, all while leveraging Azure Digital Twins.
 
-## Step 1: Review the customer case study
+## Step 1: Review the customer case study 
 
 **Outcome**
 
@@ -56,11 +56,11 @@ Timeframe: 15 minutes
 
 Directions: With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
-1. Meet your table participants and trainer.
+1. Meet your team members and trainer.
 
-2. Read all of the directions for steps 1-3 in the student guide.
+2. Read all directions for steps 1-3 in the student guide.
 
-3. As a table team, review the following customer case study.
+3. As a team, review the following customer case study.
 
 ### Customer situation
 
@@ -70,11 +70,11 @@ Contoso Apparel is looking to implement an end-to-end IoT solution in Azure. The
 
 Contoso desires to model and visualize the relationship between their processes, products, equipment, factories, shipping logistics, warehouses, and storefronts. They wish to have the ability to query into the current state of each of these elements defined their supply chain environment. They would also like to analyze historical data to track successful product deliveries or determine the root cause of unsuccessful deliveries. They also wish to leverage these models to simulate potential 'what if' process changes and assess their overall impact without experimenting with or impacting the current supply chain.
 
-In this proof of concept project, Contoso Apparel also wants to improve resiliency and time to recover at their factories by automating mitigating measures should an anomalous event occur. For example, product manufacturing could be re-routed to a secondary 'failover' factory should there be a moisture problem at the original facility. Currently, this type of failover is a manual, lengthy, and error-prone process that involves updating several systems and configuration files.
+In this proof-of-concept project, Contoso Apparel also wants to improve resiliency and time to recover at their factories by automating mitigating measures should an anomalous event occur. For example, product manufacturing could be re-routed to a secondary 'failover' factory should there be a moisture problem at the original facility. Currently, this type of failover is a manual, lengthy, and error-prone process that involves updating several systems and configuration files.
 
 ### Customer needs
 
-1. We would like to model our supply chain environment in order to gain insight into the elements along with their properties, components and the relationships between them.
+1. We would like to model our supply chain environment in order to gain insight into the elements along with their properties, components, and the relationships between them.
 
 2. We need monitor humidity telemetry from our factories in near real-time for anomalies between the values of X and Y. What services can we put in place so that we can quickly be alerted when this happens?
 
@@ -86,9 +86,9 @@ In this proof of concept project, Contoso Apparel also wants to improve resilien
 
 ### Customer objections
 
-1. Authoring Digital Twin Definition Language (DTDL) documents for all of our supply chain elements sounds like an enormous and complex undertaking. We don't even know how to get started with this. What do you recommend as a starting point?
+1. Authoring Digital Twin Definition Language (DTDL) documents for all our supply chain elements sounds like an enormous and complex undertaking. We don't even know how to get started with this. What do you recommend as a starting point?
 
-2. Our supply chain is a continuously running system, 24 hours a day, 7 days a week. As such, the state of each of our elements is in a constant state of change. How can we ensure the accuracy of our digital models? How will these be kept up-to-date?
+2. Our supply chain is a continuously running system, 24 hours a day, 7 days a week. As such, the state of each of our elements is in a constant state of change. How can we ensure the accuracy of our digital models? How will these be kept up to date?
 
 3. We want to track a manufactured product such as a T-Shirt from its manufacturing on a factory floor, delivery to a warehouse, then to a store. Finally, we'd like to trace the T-Shirt through its purchase at a store by a customer. Is this level of tracing even possible?
 
@@ -96,11 +96,11 @@ In this proof of concept project, Contoso Apparel also wants to improve resilien
 
 Azure Digital Twins is commonly used in combination with other Azure services as part of a larger IoT solution. A complete solution using Azure Digital Twins may contain the following parts:
 
-1. The Azure Digital Twins service instance. This stores your twin models and your twin graph with its state, and orchestrates event processing.
+1. The Azure Digital Twins service instance. This stores your twin models and your twin graph with its state and orchestrates event processing.
 
 2. One or more client apps that drive the Azure Digital Twins instance by configuring models, creating topology, and extracting insights from the twin graph.
 
-3. One or more external compute resources to process events generated by Azure Digital Twins, or connected data sources such as devices. One common way to provide compute resources is via Azure Functions.
+3. One or more external compute resources to process events generated by Azure Digital Twins or connected data sources such as devices. One common way to provide compute resources is via Azure Functions.
 
 4. An IoT hub to provide device management and IoT data stream capabilities.
 Downstream services to handle tasks such as workflow integration (like Logic Apps, cold storage, time series integration, or analytics).
@@ -117,15 +117,15 @@ Timeframe: 60 minutes
 
 **Business needs**
 
-Directions:  With all participants at your table, answer the following questions and list the answers on a flip chart:
+Directions: With your team, answer the following questions and be prepared to present your solution to others:
 
-1. Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+1. Who will you present this solution to? Who is your target customer audience? Who are the decision makers?
 
 2. What customer business needs do you need to address with your solution?
 
 **Design**
 
-Directions: With all participants at your table, respond to the following questions on a flip chart:
+Directions: With your team, respond to the following questions:
 
 *High-level architecture*
 
@@ -153,7 +153,7 @@ Directions: With all participants at your table, respond to the following questi
 
 *Model updates*
 
-1. How do you suggest keeping the environment model up-to-date with the real world state?
+1. How do you suggest keeping the environment model up to date with the real-world state?
 
 *Business logic implementation*
 
@@ -165,7 +165,7 @@ Directions: With all participants at your table, respond to the following questi
 
 **Prepare**
 
-Directions: With all participants at your table:
+Directions: As a team:
 
 1. Identify any customer needs that are not addressed with the proposed solution.
 
@@ -187,9 +187,9 @@ Timeframe: 30 minutes
 
 Directions:
 
-1. Pair with another table.
+1. Pair with another team.
 
-2. One table is the Microsoft team and the other table is the customer.
+2. One group is the Microsoft team, the other is the customer.
 
 3. The Microsoft team presents their proposed solution to the customer.
 
@@ -199,13 +199,13 @@ Directions:
 
 6. The customer team gives feedback to the Microsoft team.
 
-7. Tables switch roles and repeat Steps 2-6.
+7. Switch roles and repeat Steps 2-6.
 
-## Wrap-up
+##  Wrap-up 
 
 Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
+Directions: Reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ## Additional references
 
@@ -219,8 +219,10 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | DTDL Specification | [https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) |
 | Azure Digital Twins Ontologies | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies) |
 | Azure Digital Twins Explorer | [https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/](https://docs.microsoft.com/en-us/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) |
+| Azure Digital Twins Explorer (Preview) | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-azure-digital-twins-explorer] |
 | Azure Stream Analytics anomaly detection  | [https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)  |
 | Azure IoT Hub Device Provisioning Service  | [https://docs.microsoft.com/en-us/azure/iot-dps/](https://docs.microsoft.com/en-us/azure/iot-dps/)   |
 | Azure IoT Hub documentation | [https://docs.microsoft.com/en-us/azure/iot-hub/](https://docs.microsoft.com/en-us/azure/iot-hub/) |
 | Azure Time Series Insights documentation | [https://docs.microsoft.com/en-us/azure/time-series-insights/](https://docs.microsoft.com/en-us/azure/time-series-insights/) |
 | Azure Logic Apps documentation | [https://docs.microsoft.com/en-us/azure/logic-apps/](https://docs.microsoft.com/en-us/azure/logic-apps/) |
+| Azure Digital Twins query plugin for Azure Data Explorer | [https://docs.microsoft.com/en-us/azure/digital-twins/concepts-data-explorer-plugin] |

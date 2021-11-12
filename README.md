@@ -4,7 +4,7 @@ Azure Digital Twins (ADT) is a platform as a service (PaaS) offering that enable
 
 Contoso Apparel is a large multinational clothing manufacturer. Their environment consists of several factories, warehouses, storefronts, and logistics infrastructure. Multiple telemetry points are measured to ensure the highest quality level in their products, such as temperature, vibration, location, and humidity. Of these readings, maintaining humidity within the range of x and y at all supply chain levels is the most critical. Due to mold issues, humidity has a direct correlation to the quality of the delivered consumer end-product. Contoso Apparel is looking to implement digital twins to model their existing supply chain environment end-to-end so that they can visualize their entire environment and gain insight into the current state of their assets.
 
-May 2021
+October 2021
 
 ## Target audience
 
@@ -21,7 +21,7 @@ In this workshop, you will learn how to interpret and author Digital Twin Defini
 At the end of this workshop, you will be better able to explain the benefits of Azure Digital Twins as well as architect an analytical IoT solution.
 
 ### Whiteboard design session
-In this whiteboard design session, you will work in a group to evaluate Contoso's goals and design an IoT-based supply chain solution that uses the optimal combination of Azure tools and services that will fulfill their needs. You will also model their physical and logical environment to identify elements along with their properties and define the relationships between them. You will guide Contoso on deploying these models to Azure Digital Twins, how to leverage them and keep them up-to-date.
+In this whiteboard design session, you will work in a group to evaluate Contoso's goals and design an IoT-based supply chain solution that uses the optimal combination of Azure tools and services that will fulfill their needs. You will also model their physical and logical environment to identify elements along with their properties and define the relationships between them. You will guide Contoso on deploying these models to Azure Digital Twins, how to leverage them and keep them up to date.
 
 At the end of this whiteboard design session, you will be better able to design an end-to-end Azure IoT supply chain solution from telemetry ingestion to data insights, all while leveraging Azure Digital Twins.
 
@@ -38,7 +38,7 @@ At the end of this hands-on lab, you will be better able to implement an end-to-
 - Azure Stream Analytics
 - Azure Logic Apps
 - Azure Event Hub
-- Powershell
+- PowerShell
 
 ## Related references
 - [MCW](https://microsoftcloudworkshop.com/)
