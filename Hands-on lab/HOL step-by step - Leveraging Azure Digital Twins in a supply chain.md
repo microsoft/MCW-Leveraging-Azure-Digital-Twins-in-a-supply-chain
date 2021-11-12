@@ -48,7 +48,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Run digital twin queries using the CLI](#task-1-run-digital-twin-queries-using-the-cli)
     - [Task 2: Run digital twin queries using Azure Digital Twins Explorer](#task-2-run-digital-twin-queries-using-azure-digital-twins-explorer)
     - [Task 3: Run digital twin queries using an SDK](#task-3-run-digital-twin-queries-using-an-sdk)
-  - [Exercise 5: Keeping Azure Digital Twin instances up-to-date](#exercise-5-keeping-azure-digital-twin-instances-up-to-date)
+  - [Exercise 5: Keeping Azure Digital Twin instances up to date](#exercise-5-keeping-azure-digital-twin-instances-up-to-date)
     - [Task 1: Manually update the state of a digital twin using the CLI](#task-1-manually-update-the-state-of-a-digital-twin-using-the-cli)
     - [Task 2: Manually update the state of a digital twin using the Azure Digital Twins Explorer](#task-2-manually-update-the-state-of-a-digital-twin-using-the-azure-digital-twins-explorer)
     - [Task 3: Using a logic application to trigger Azure Digital Twin updates for shipments](#task-3-using-a-logic-application-to-trigger-azure-digital-twin-updates-for-shipments)
@@ -598,11 +598,11 @@ SDK access to Azure Digital Twins is a convenient way to integrate digital twin 
 
     ![The Visual Studio Code terminal window displays with output of the adtsdk program.](media/adtsdkoutput.png "Console output")
 
-## Exercise 5: Keeping Azure Digital Twin instances up-to-date
+## Exercise 5: Keeping Azure Digital Twin instances up to date
 
 Duration: 60 minutes
 
-It is critical that digital twins remain up-to-date with their real-world counterparts. In this exercise, we'll review some different approaches to updating digital twins.
+It is critical that digital twins remain up to date with their real-world counterparts. In this exercise, we'll review some different approaches to updating digital twins.
 
 ### Task 1: Manually update the state of a digital twin using the CLI
 
