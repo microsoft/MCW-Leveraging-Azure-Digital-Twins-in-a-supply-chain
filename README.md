@@ -1,9 +1,6 @@
-# Retirement notice
-This workshop will be retired effective June 30, 2022. At that time the repository will be archived, and the materials will not be maintained.
-
-For questions or concerns regarding the MCW library, email [AskMCW](mailto:AskMCW@microsoft.com). Please remember to include the title of the workshop in your email.
-
 # Leveraging Azure Digital Twins in a supply chain
+
+## This workshop is archived and no longer being maintained.  Content is read-only.
 
 Azure Digital Twins (ADT) is a platform as a service (PaaS) offering that enables creating knowledge graphs based on digital models of entire environments. These environments could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. These digital models can help gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences. Azure Digital Twins facilitates asset connectivity, such as connecting IoT devices with existing business systems. ADT also offers a robust event system to build dynamic business logic and data processing. Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future, all in a scalable and secure manner.
 
